@@ -1,0 +1,11 @@
+.wd-admin-layout-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding: 0 50px;
+
+  .MuiTypography-root {
+    margin-bottom: 0;
+  }
+}

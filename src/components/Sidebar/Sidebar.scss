@@ -1,0 +1,25 @@
+
+
+.wd-admin-sidebar {
+  width: 230px;
+  height: 100%;
+  border-right: 1px solid #6661;
+  padding: 10px;
+
+  .wd-admin-link {
+    margin-top: 10px;
+    padding: 10px;
+    background: #f3f3f3aa;
+    border-radius: 5px;
+    border: 1px solid transparent;
+
+    &.active {
+      border: 1px solid #0002;
+    }
+    
+    &:hover {
+      background: #f3f3f3;
+      border: 1px solid #0002;
+    }
+  }
+}

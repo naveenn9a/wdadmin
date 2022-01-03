@@ -1,0 +1,7 @@
+.MuiTableRow-root {
+    cursor: pointer !important;
+
+    &:hover {
+        background: rgba(145, 158, 171, 0.12);
+    }
+}

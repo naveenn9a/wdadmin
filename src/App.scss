@@ -1,0 +1,58 @@
+.wd-admin-root {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    box-sizing: border-box;
+
+    .wd-admin-main {
+        width: calc(100% - 230px);
+        height: 100vh;
+        box-sizing: border-box;
+        overflow-y: auto;
+    }
+
+    .wd-admin-link {
+        text-decoration: none;
+        color: inherit;
+    }
+
+    .wd-layout {
+        padding: 15px;
+    }
+
+    .wd-chip {
+        cursor: pointer;
+    }
+
+    .wd-paper {
+        padding: 30px;
+        margin: 20px;
+        background-color: rgb(255, 255, 255);
+        color: rgb(33, 43, 54);
+        transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+        background-image: none;
+        overflow: hidden;
+        position: relative;
+        box-shadow: rgba(145, 158, 171, 0.2) 0px 0px 2px 0px, rgba(145, 158, 171, 0.12) 0px 12px 24px -4px;
+        border-radius: 16px;
+        z-index: 0;
+        padding: 24px;
+    }
+    
+    .MuiOutlinedInput-root {
+        border-radius: 10px;
+    }
+    
+    .MuiOutlinedInput-notchedOutline {
+        border-color: rgba(145, 158, 171, 0.32);
+    }
+
+    .wd-text-dim {
+        color: rgb(99, 115, 129);
+        font-size: 16px;
+    }
+
+    .mt-16 {
+        margin-top: 16px;
+    }
+}

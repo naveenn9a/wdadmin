@@ -1,0 +1,63 @@
+.wd-products-form-main {
+  padding: 0 100px;
+
+  .wd-product-img {
+    width: 100%;
+    object-fit: contain;
+    height: 300px;
+  }
+
+  .wd-specs-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .wd-admin-specrow {
+    background: #f3f3f3cc;
+    padding: 10px;
+    margin: 0px 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    position: relative;
+
+    .wd-spec-delete {
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      top: 0px;
+      left: 0px;
+      background: red;
+      font-size: 5px;
+      z-index: 1;
+    }
+
+    &:hover {
+      background: #f3f3f3;
+    }
+  }
+}
+
+.wd-product-content {
+  margin-top: 10px;
+
+  .MuiTypography-root {
+    margin-bottom: 6px;
+  }
+
+  .ql-toolbar {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+  }
+
+  .ql-editor {
+    min-height: 200px;
+  }
+
+  .ql-container {
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+  }
+
+  
+}
