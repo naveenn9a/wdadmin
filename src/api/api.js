@@ -1,7 +1,19 @@
 import axios from 'axios';
-import { API, token } from '../config/config';
+import { API } from '../config/config';
 axios.defaults.baseURL = API;
-  axios.defaults.headers.common['Authorization'] = `bearer ${token}`;
+
+axios.interceptors.request.use((config) => {
+  let authObj = localStorage.getItem('token') || {}
+  try {
+    authObj = JSON.parse(localStorage.getItem('token')) || {}
+  } catch (e) {
+    authObj = {}
+  }
+
+  // add token to request headers
+  config.headers['Authorization'] = `bearer ${authObj.token}`;
+  return config;
+});
 
 export const getAxios = (path) => {
   return axios.get(`${path}`)

@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useContext } from "react";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import { snackBar } from './services/general'
 import Alert from '@mui/material/Alert';
 import Snackbar from '@mui/material/Snackbar';
-
+import AuthContext from './context/AuthProvider';
 // react-router components
 import { Routes, Route, Navigate, useLocation } from "react-router-dom";
 
@@ -28,9 +28,9 @@ const theme = createTheme({
 });
 
 export default function App() {
-
   const { pathname } = useLocation();
   const [snackData, setSnackData] = React.useState({});
+  const { auth } = useContext(AuthContext);
 
   // Setting page scroll to 0 when changing the route
   useEffect(() => {
@@ -55,22 +55,26 @@ export default function App() {
     });
 
   return <ThemeProvider theme={theme}>
-    <div className="wd-admin-root">
-      <Sidebar routes={routes} />
-      <Snackbar
-        open={snackData.open}
-        autoHideDuration={3000}
-        onClose={() => { snackBar.next({})}}
-      >
-        <Alert severity={snackData.severity}>{snackData.message}</Alert>
-      </Snackbar>
-      <div className="wd-admin-main">
-        <Header />
-        <Routes>
-          {getRoutes(routes)}
-          <Route path="*" element={<Navigate to="/dashboard" />} />
-        </Routes>
+    {auth && auth.isLogged ? <>
+      <div className="wd-admin-root">
+        <Sidebar routes={routes} />
+        <Snackbar
+          open={snackData.open}
+          autoHideDuration={3000}
+          onClose={() => { snackBar.next({}) }}
+        >
+          <Alert severity={snackData.severity}>{snackData.message}</Alert>
+        </Snackbar>
+        <div className="wd-admin-main">
+          <Header />
+          <Routes>
+            {getRoutes(routes)}
+            <Route path="*" element={<Navigate to="/dashboard" />} />
+          </Routes>
+        </div>
       </div>
-    </div>
+    </> :
+      <Navigate to={'/login'} />
+    }
   </ThemeProvider>
 }

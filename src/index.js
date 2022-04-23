@@ -1,14 +1,23 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+import Private from './layout/Private';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from "react-router-dom";
+import { Routes, Route, Navigate, useLocation } from "react-router-dom";
+import Login from "./layout/Login/Login";
+import { AuthProvider } from './context/AuthProvider';
 
+console.log(process.env, 'env')
 ReactDOM.render(
-  <BrowserRouter>
-    <App />
-  </BrowserRouter>,
+  <AuthProvider>
+    <BrowserRouter>
+      <Routes>
+        <Route path={"/login"} element={<Login />} />
+        <Route path={"*"} element={<Private />} />
+      </Routes>
+    </BrowserRouter>
+  </AuthProvider>,
   document.getElementById('root')
 );
 

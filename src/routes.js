@@ -7,6 +7,7 @@ import Products from "./layout/Products/Products";
 import ProductForm from "./layout/Products/ProductForm";
 import Users from "./layout/Users/Users";
 import Posts from "./layout/Posts/Posts";
+import Login from "./layout/Login/Login";
 import PostForm from "./layout/Posts/PostForm";
 import DeleteIcon from '@mui/icons-material/Delete';
 
@@ -102,6 +103,12 @@ const routes = [
     icon:  <DeleteIcon />,
     route: "/users",
     component: <Users />,
+  },
+  {
+    name: "Login",
+    key: "login",
+    route: "/login",
+    component: <Login />,
   },
 ];
 

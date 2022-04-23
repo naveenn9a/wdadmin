@@ -1,6 +1,4 @@
-export const API = "http://api.webdecrypted.com/v1";
-export const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2MWM4YmExYzcyYzc5MzJmNDA2NjJjYzQiLCJpYXQiOjE2NTA3MjQ4MTEsImV4cCI6MTY1MDcyNjYxMSwidHlwZSI6ImFjY2VzcyJ9.u3eS-Wv077nFkh02ddMBKT1VwaeRcdnHJlp7LM1o2QM";
-
+export const API = process.env.REACT_APP_API_URL;
 
 // columns
 export const productColumns = ['id', 'name', 'slug', 'shortDescription', 'description']
