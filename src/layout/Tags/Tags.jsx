@@ -6,9 +6,11 @@ import WDButton from "../../components/WDButton/WDButton";
 import Stack from '@mui/material/Stack';
 import Chip from '@mui/material/Chip';
 import { snackBar } from './../../services/general'
+import { useNavigate } from 'react-router-dom'; 
 
 export default function Tags() {
 
+  const navigate = useNavigate()
   const [tags, setTags] = useState([]);
   const [newTag, setNewTag] = useState("");
   const [isLoading, toggleLoading] = React.useState(false);
@@ -17,9 +19,12 @@ export default function Tags() {
     getAxios(`/tag`).then(response => {
       let { results, page, limit, totalPages, totalResults } = response.data;
       setTags(results);
-    }).catch(erro => [
-      console.log('err', erro)
-    ])
+    }).catch(erro => {
+      if (erro.response.status == 401) {
+        localStorage.removeItem('token');
+        navigate('/login')
+      }
+    })
   }, [])
 
   const handleNewTag = (e) => {

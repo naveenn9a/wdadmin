@@ -6,12 +6,14 @@ import WDButton from "../../components/WDButton/WDButton";
 import Stack from '@mui/material/Stack';
 import Chip from '@mui/material/Chip';
 import { snackBar } from './../../services/general'
+import { useNavigate } from 'react-router-dom'; 
 
 export default function Category() {
 
   const [categorys, setCategories] = useState([]);
   const [newCategory, setNewCategory] = useState("");
   const [isLoading, toggleLoading] = React.useState(false);
+  const navigate = useNavigate()
 
   useEffect(() => {
     getAxios(`/category`).then(response => {
@@ -25,7 +27,7 @@ export default function Category() {
   const handleNewCategory = (e) => {
     setNewCategory(e.target.value)
   };
-  
+
   const handleDelete = (e) => {
     deleteAxios(`/category/${e.id}`).then(response => {
       setCategories(categorys.filter(lt => lt.id != e.id));
@@ -50,11 +52,18 @@ export default function Category() {
         toggleLoading(false)
         setNewCategory("")
       }).catch(response => {
+        if (response.response.status == 401) {
+          localStorage.removeItem('token');
+          navigate('/login')
+        }
+
         toggleLoading(false)
-        if(response?.data?.message)
+        if (response?.data?.message)
           snackBar.next({ message: response?.data?.message || response.message, severity: 'error', open: true });
         else
           snackBar.next({ message: response.message, severity: 'error', open: true });
+
+
       })
     }, 1000);
 

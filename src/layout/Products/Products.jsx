@@ -28,9 +28,12 @@ export default function Products() {
 
       setRows(compiledRows);
 
-    }).catch(erro => [
-      console.log('err', erro)
-    ])
+    }).catch(erro => {
+      if (erro.response.status == 401) {
+        localStorage.removeItem('token');
+        navigate('/login')
+      }
+    })
   }, [])
 
   return <div className="wd-products-main wd-layout">

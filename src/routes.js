@@ -30,7 +30,7 @@ const routes = [
   },
   {
     type: "collapse",
-    name: "Add Product",
+    name: "Add Post",
     key: "products-add",
     icon:  <DeleteIcon />,
     route: "/products/new",
@@ -39,7 +39,7 @@ const routes = [
   },
   {
     type: "collapse",
-    name: "Edit Product",
+    name: "Edit Post",
     key: "products-edit",
     icon:  <DeleteIcon />,
     route: "/products/:productId",
@@ -48,38 +48,38 @@ const routes = [
   },
   {
     type: "collapse",
-    name: "Products",
+    name: "Posts",
     key: "products",
     icon:  <DeleteIcon />,
     route: "/products",
     component: <Products />,
   },
-  {
-    type: "collapse",
-    name: "Add Post",
-    key: "post-add",
-    icon:  <DeleteIcon />,
-    route: "/post/new",
-    component: <PostForm />,
-    ui: false
-  },
-  {
-    type: "collapse",
-    name: "Edit Post",
-    key: "post-edit",
-    icon:  <DeleteIcon />,
-    route: "/post/:postId",
-    component: <PostForm />,
-    ui: false
-  },
-  {
-    type: "collapse",
-    name: "Posts",
-    key: "posts",
-    icon:  <DeleteIcon />,
-    route: "/posts",
-    component: <Posts />,
-  },
+  // {
+  //   type: "collapse",
+  //   name: "Add Post",
+  //   key: "post-add",
+  //   icon:  <DeleteIcon />,
+  //   route: "/post/new",
+  //   component: <PostForm />,
+  //   ui: false
+  // },
+  // {
+  //   type: "collapse",
+  //   name: "Edit Post",
+  //   key: "post-edit",
+  //   icon:  <DeleteIcon />,
+  //   route: "/post/:postId",
+  //   component: <PostForm />,
+  //   ui: false
+  // },
+  // {
+  //   type: "collapse",
+  //   name: "Posts",
+  //   key: "posts",
+  //   icon:  <DeleteIcon />,
+  //   route: "/posts",
+  //   component: <Posts />,
+  // },
   {
     type: "collapse",
     name: "Category",

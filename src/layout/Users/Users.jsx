@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
-import Typography from '@mui/material/Typography';
 import Table from '../../components/Table/Table';
 import LayoutHeader from '../../components/LayoutHeader/LayoutHeader';
 import { getAxios } from './../../api/api'
+import { useNavigate } from 'react-router-dom'; 
 const columns = ['name', 'email', 'role']
 
 function createData(result) {
@@ -11,6 +11,7 @@ function createData(result) {
 
 export default function Users() {
   const [rows, setRows] = useState([]);
+  const navigate = useNavigate()
 
   useEffect(() => {
     getAxios('/users').then(response => {
@@ -22,9 +23,12 @@ export default function Users() {
 
       setRows(compiledRows);
 
-    }).catch(erro => [
-      console.log('err', erro)
-    ])
+    }).catch(erro => {
+      if (erro.response.status == 401) {
+        localStorage.removeItem('token');
+        navigate('/login')
+      }
+    })
   }, [])
 
   function handleNew () {

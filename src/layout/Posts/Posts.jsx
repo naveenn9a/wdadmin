@@ -4,7 +4,7 @@ import LayoutHeader from '../../components/LayoutHeader/LayoutHeader';
 import { getAxios } from './../../api/api';
 import { createTableData } from './../../utils/common';
 import { postColumns } from './../../config/config';
-import { useNavigate } from 'react-router-dom'; 
+import { useNavigate } from 'react-router-dom';
 import './Posts.scss'
 
 function handleNewClick(navigate) {
@@ -29,15 +29,18 @@ export default function Posts() {
 
       setRows(compiledRows);
 
-    }).catch(erro => [
-      console.log('err', erro)
-    ])
+    }).catch(erro => {
+      if (erro.response.status == 401) {
+        localStorage.removeItem('token');
+        navigate('/login')
+      }
+    })
   }, [])
 
   return <div className="wd-products-main wd-layout">
     <LayoutHeader title={"Posts"} btnTitle={"Add New"} onClick={handleNewClick.bind(this, navigate)} />
     <div className="wd-layout-main">
-      <Table title={'Posts'} rows={rows} columns={postColumns} handleTableRowClick={handleTableRowClick.bind(this, navigate)}/>
+      <Table title={'Posts'} rows={rows} columns={postColumns} handleTableRowClick={handleTableRowClick.bind(this, navigate)} />
     </div>
   </div>
 }
