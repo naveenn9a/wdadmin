@@ -118,6 +118,7 @@ export default function Products() {
     finalObj.specEnabled = specEnabled;
     finalObj.specs = allSpecs;
 
+    console.log("+++ IS EDIT", isEditMode, isSaveAsNew)
     setTimeout(() => {
       if (isEditMode && !isSaveAsNew) {
         patchAxios(`/product/${productId}`, finalObj).then(response => {
@@ -260,7 +261,7 @@ export default function Products() {
                   <WDButton style={{ width: '100%', height: '50px', backgroundColor: 'white', color: "#333" }} onClick={handlePreview} disableElevation title={"Preview"}></WDButton>
                 </Grid>
                 <Grid item xs={6}>
-                  <WDButton loading={isLoading} style={{ width: '100%', height: '50px' }} title={isEditMode ? "Update" : "Submit"} onClick={handleSubmitProduct} variant="outlined"></WDButton>
+                  <WDButton loading={isLoading} style={{ width: '100%', height: '50px' }} title={isEditMode ? "Update" : "Submit"} onClick={e => handleSubmitProduct(false)} variant="outlined"></WDButton>
                 </Grid>
                 {isEditMode && <Grid item xs={6}>
                   <WDButton loading={isLoading} style={{ width: '100%', height: '50px' }} title={"Save as new"} onClick={e => handleSubmitProduct(true)} variant="outlined"></WDButton>
