@@ -7,6 +7,8 @@ import Products from "./layout/Products/Products";
 import ProductForm from "./layout/Products/ProductForm";
 import Users from "./layout/Users/Users";
 import Posts from "./layout/Posts/Posts";
+import Status from "./layout/Status/Status";
+import StatusForm from "./layout/Status/StatusForm";
 import Login from "./layout/Login/Login";
 import PostForm from "./layout/Posts/PostForm";
 import DeleteIcon from '@mui/icons-material/Delete';
@@ -53,6 +55,32 @@ const routes = [
     icon:  <DeleteIcon />,
     route: "/products",
     component: <Products />,
+  },
+  {
+    type: "collapse",
+    name: "Status",
+    key: "status",
+    icon:  <DeleteIcon />,
+    route: "/status",
+    component: <Status />,
+  },
+  {
+    type: "collapse",
+    name: "Add Status",
+    key: "status-add",
+    icon:  <DeleteIcon />,
+    route: "/status/new",
+    component: <StatusForm />,
+    ui: false
+  },
+  {
+    type: "collapse",
+    name: "Edit Status",
+    key: "status-edit",
+    icon:  <DeleteIcon />,
+    route: "/status/:statusId",
+    component: <StatusForm />,
+    ui: false
   },
   // {
   //   type: "collapse",

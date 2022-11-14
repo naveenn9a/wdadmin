@@ -16,7 +16,7 @@ function generateRow(row, columns, handleTableRowClick) {
     sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
   >
     {columns.map((column) => (
-      <TableCell key={column}>{row[column] ? row[column].slice(0, 200) : ''}</TableCell>
+      <TableCell key={column}>{row[column] ? row[column].toString().slice(0, 200) : ''}</TableCell>
     ))}
   </TableRow>
 }

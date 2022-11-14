@@ -1,0 +1,37 @@
+.wd-post-products {
+  .wd-product {
+    background: #f4f4f499;
+    padding: 15px;
+    border-radius: 10px;
+    position: relative;
+    cursor: pointer;
+    &:hover {
+      background: #f4f4f4;
+    }
+
+    .wd-admin-link {
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+
+    .wd-product-count, .wd-product-delete {
+      width: 40px;
+      height: 40px;
+      background: #999;
+      color: white;
+      position: absolute;
+      top: 0;
+      right: 0;
+      border-radius: 10px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-weight: bold;
+    }
+
+    .wd-product-delete {
+      right: 45px;
+    }
+  }
+}

@@ -3,6 +3,7 @@ export const API = process.env.REACT_APP_API_URL;
 // columns
 export const productColumns = ['id', 'name', 'slug', 'shortDescription', 'description']
 export const postColumns = ['id', 'title', 'slug', 'description', 'content']
+export const statusColumns = ['id', 'text', 'likes', 'language', 'copy']
 
 // quill
 export const ql_modules = {
